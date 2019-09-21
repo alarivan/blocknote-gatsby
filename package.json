@@ -1,0 +1,50 @@
+{
+  "name": "gatsby-basic-typescript-starter",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby using TypeScript, Jest, @testing-library/react, styled-components",
+  "version": "0.1.0",
+  "author": "alarivan <alarivan@pm.me>",
+  "dependencies": {
+    "gatsby": "^2.15.7",
+    "gatsby-image": "^2.2.17",
+    "gatsby-plugin-manifest": "^2.2.13",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-react-helmet": "^3.1.6",
+    "gatsby-plugin-sharp": "^2.2.19",
+    "gatsby-plugin-styled-components": "^3.1.5",
+    "gatsby-plugin-typescript": "^2.1.6",
+    "gatsby-source-filesystem": "^2.1.21",
+    "gatsby-transformer-sharp": "^2.2.13",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.4",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.4",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.9",
+    "@types/styled-components": "^4.1.19",
+    "jest": "^24.9.0",
+    "jest-styled-components": "^6.3.3",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.6.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "jest"
+  }
+}
