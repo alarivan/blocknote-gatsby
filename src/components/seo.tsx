@@ -29,7 +29,6 @@ const SEO: React.FC<Props> = ({
           siteMetadata {
             title
             description
-            author
           }
         }
       }
@@ -65,10 +64,6 @@ const SEO: React.FC<Props> = ({
         {
           name: `twitter:card`,
           content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
         },
         {
           name: `twitter:title`,
