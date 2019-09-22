@@ -55,6 +55,11 @@ exports[`IndexPage renders correctly 1`] = `
       <h1>
         Hi people
       </h1>
+      <a
+        href="/app"
+      >
+        Go To App
+      </a>
       <p>
         Welcome to your new Gatsby site.
       </p>
