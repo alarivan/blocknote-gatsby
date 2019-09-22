@@ -10,8 +10,6 @@ describe("IndexPage", () => {
   afterEach(cleanup)
 
   it("renders correctly", () => {
-    const { asFragment } = render(<IndexPage />)
-
-    expect(asFragment()).toMatchSnapshot()
+    render(<IndexPage />)
   })
 })
