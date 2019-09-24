@@ -15,4 +15,5 @@ module.exports = {
   },
   setupFilesAfterEnv: [`<rootDir>/jest.setup.js`],
   setupFiles: [`<rootDir>/loadershim.js`],
+  snapshotSerializers: ["jest-emotion"],
 }
