@@ -1,12 +1,11 @@
 import React, { ReactNode } from "react"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql } from "gatsby"
-import GlobalStyles from "./styled/global"
 import Header from "./header"
 import { ThemeProvider } from "emotion-theming"
 // @ts-ignore
 import theme from "@rebass/preset"
-import { Global } from "@emotion/core"
+import "modern-normalize/modern-normalize.css"
 
 type Props = {
   children: ReactNode
@@ -32,7 +31,6 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Global styles={GlobalStyles} />
         <Header siteTitle={data.site.siteMetadata.title} />
         <StyledContainer>
           <main>{children}</main>
