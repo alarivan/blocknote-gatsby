@@ -22,4 +22,16 @@ export type SAVE_NOTE_ACTION = {
   }
 }
 
-export type TNotesAction = SET_NOTES_ACTION | SAVE_NOTE_ACTION | EMPTY_ACTION
+export const DELETE_NOTE = "DELETE_NOTE"
+export type DELETE_NOTE_ACTION = {
+  type: typeof DELETE_NOTE
+  payload: {
+    note: TNote
+  }
+}
+
+export type TNotesAction =
+  | SET_NOTES_ACTION
+  | SAVE_NOTE_ACTION
+  | EMPTY_ACTION
+  | DELETE_NOTE_ACTION

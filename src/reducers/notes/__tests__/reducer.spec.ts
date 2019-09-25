@@ -1,6 +1,6 @@
 import { notesReducer } from "../reducer"
 import { emptyAction } from "../../actions"
-import { setNotesAction, saveNoteAction } from "../actions"
+import { setNotesAction, saveNoteAction, deleteNoteAction } from "../actions"
 import { Map } from "immutable"
 
 describe("notesReducer", () => {
@@ -24,5 +24,13 @@ describe("notesReducer", () => {
     const state = notesReducer(Map(), action)
 
     expect(state).toEqual(Map([[note.id, note]]))
+  })
+
+  it("deletes note", () => {
+    const note = { id: "fake_id", body: "body" }
+    const action = deleteNoteAction(note)
+    const state = notesReducer(Map(), action)
+
+    expect(state).toEqual(Map())
   })
 })
