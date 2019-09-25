@@ -29,7 +29,7 @@ describe("notesReducer", () => {
   it("deletes note", () => {
     const note = { id: "fake_id", body: "body" }
     const action = deleteNoteAction(note)
-    const state = notesReducer(Map(), action)
+    const state = notesReducer(Map([[note.id, note]]), action)
 
     expect(state).toEqual(Map())
   })
