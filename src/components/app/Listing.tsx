@@ -1,5 +1,5 @@
 import React from "react"
-import { TNote } from "../reducers/notes/types"
+import { TNote } from "../../reducers/notes/types"
 import { Link } from "@reach/router"
 
 interface Props {
