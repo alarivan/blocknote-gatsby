@@ -1,10 +1,10 @@
 import React from "react"
+import { Seq } from "immutable"
 import { TNote } from "../../reducers/notes/types"
-
 import Note from "./Listing/Note"
 
 interface Props {
-  notes: TNote[]
+  notes: Seq.Indexed<TNote>
 }
 
 const Listing: React.FC<Props> = ({ notes }) => {
