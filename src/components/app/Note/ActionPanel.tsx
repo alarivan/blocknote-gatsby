@@ -10,7 +10,7 @@ interface Props {
 
 const ActionPanel: React.FC<Props> = ({ note }) => {
   const handleEdit = () => {
-    navigate(`edit/${note.id}`)
+    navigate(`app/edit/${note.id}`)
   }
   const handleView = () => {}
   const handleCopy = () => {}
