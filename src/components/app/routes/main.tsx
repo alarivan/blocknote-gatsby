@@ -1,23 +1,15 @@
 import React, { useContext } from "react"
-import { RouteComponentProps, Link } from "@reach/router"
+import { RouteComponentProps } from "@reach/router"
 import { NotesContext } from "../../../context/NotesContext"
-import { TNote } from "../../../reducers/notes/types"
+
+import Listing from "../Listing"
 
 interface Props extends RouteComponentProps {}
 
 const Main: React.FC<Props> = () => {
   const { state } = useContext(NotesContext)
 
-  return (
-    <div>
-      {state.valueSeq().map((note: TNote) => (
-        <div key={note.id}>
-          <Link to={`edit/${note.id}`}>Edit</Link>
-          <div dangerouslySetInnerHTML={{ __html: note.body }}></div>
-        </div>
-      ))}
-    </div>
-  )
+  return <Listing notes={state.valueSeq()} />
 }
 
 export default Main
