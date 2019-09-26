@@ -11,7 +11,7 @@ describe("tagsReducer", () => {
   })
 
   it("sets tags", () => {
-    const tags = Map([["fake_id", { id: "fake_id", color: "black&white" }]])
+    const tags = Map([["fake_id", { id: "fake_id", color: "white" }]])
     const action = setTagsAction(tags)
     const state = tagsReducer(Map(), action)
 
@@ -19,17 +19,17 @@ describe("tagsReducer", () => {
   })
 
   it("adds tag", () => {
-    const tag = { id: "fake_id", color: "black&white" }
+    const tag = { id: "fake_id", color: "white" }
     const action = saveTagAction(tag)
     const state = tagsReducer(Map(), action)
 
     expect(state).toEqual(Map([[tag.id, tag]]))
   })
 
-  it("delete tag", () => {
-    const tag = { id: "fake_id", color: "black&white" }
+  it("deletes tag", () => {
+    const tag = { id: "fake_id", color: "white" }
     const action = deleteTagAction(tag)
-    const state = tagsReducer(Map(), action)
+    const state = tagsReducer(Map([[tag.id, tag]]), action)
 
     expect(state).toEqual(Map())
   })
