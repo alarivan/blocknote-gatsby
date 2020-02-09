@@ -1,21 +1,21 @@
 import React, { ReactNode } from "react"
-import styled from "@emotion/styled"
 import { useStaticQuery, graphql } from "gatsby"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles"
 import Header from "./header"
-import { ThemeProvider } from "emotion-theming"
-// @ts-ignore
-import theme from "@rebass/preset"
-import "modern-normalize/modern-normalize.css"
+import theme from "../theme/default"
 
 type Props = {
   children: ReactNode
 }
 
-const StyledContainer = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0 1.0875rem 1.45rem;
-`
+const useStyles = makeStyles({
+  container: {
+    margin: "0 auto",
+    maxWidth: "960px",
+    padding: "0 1.0875rem 1.45rem",
+  },
+})
 
 const Layout: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,14 +27,16 @@ const Layout: React.FC<Props> = ({ children }) => {
       }
     }
   `)
+  const classes = useStyles()
 
   return (
     <>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Header siteTitle={data.site.siteMetadata.title} />
-        <StyledContainer>
+        <div className={classes.container}>
           <main>{children}</main>
-        </StyledContainer>
+        </div>
       </ThemeProvider>
     </>
   )
