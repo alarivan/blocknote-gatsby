@@ -4,6 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles"
 import Header from "../header"
 import theme from "../../theme/default"
+import NavMenu from "../app/NavMenu"
 
 type Props = {
   children: ReactNode
@@ -35,6 +36,7 @@ const AppLayout: React.FC<Props> = ({ children }) => {
         <CssBaseline />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div className={classes.container}>
+          <NavMenu />
           <main>{children}</main>
         </div>
       </ThemeProvider>
