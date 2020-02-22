@@ -4,6 +4,7 @@ import { TNote } from "../../../reducers/notes/types"
 
 import Button from "@material-ui/core/Button"
 import { navigate } from "@reach/router"
+import { copyToClipBoard } from "../../utils/copyToClipBoard"
 
 interface Props {
   note: TNote
@@ -22,7 +23,9 @@ const ActionPanel: React.FC<Props> = ({ note }) => {
     navigate(`app/edit/${note.id}`)
   }
   const handleView = () => {}
-  const handleCopy = () => {}
+  const handleCopy = () => {
+    copyToClipBoard(note.body)
+  }
   const handleDelete = () => {}
 
   return (
