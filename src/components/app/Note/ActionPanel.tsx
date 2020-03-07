@@ -3,7 +3,10 @@ import { makeStyles } from "@material-ui/core/styles"
 import { TNote } from "../../../reducers/notes/types"
 
 import Button from "@material-ui/core/Button"
+
 import { navigate } from "@reach/router"
+import { copyToClipBoard } from "../../utils/copyToClipBoard"
+import CopyButton from "./CopyButton"
 
 interface Props {
   note: TNote
@@ -12,6 +15,10 @@ interface Props {
 const useStyles = makeStyles({
   panel: {
     display: "flex",
+  },
+  copyDone: {},
+  cont: {
+    position: "absolute",
   },
 })
 
@@ -22,7 +29,9 @@ const ActionPanel: React.FC<Props> = ({ note }) => {
     navigate(`app/edit/${note.id}`)
   }
   const handleView = () => {}
-  const handleCopy = () => {}
+  const handleCopy = () => {
+    copyToClipBoard(note.body)
+  }
   const handleDelete = () => {}
 
   return (
@@ -30,9 +39,7 @@ const ActionPanel: React.FC<Props> = ({ note }) => {
       <Button onClick={handleView} variant="outlined">
         View
       </Button>
-      <Button onClick={handleCopy} variant="outlined">
-        Copy
-      </Button>
+      <CopyButton onClick={handleCopy} variant="outlined" />
       <Button onClick={handleEdit} variant="outlined">
         Edit
       </Button>
