@@ -1,9 +1,7 @@
 import React, { ReactNode } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles"
-import Header from "./header"
-import theme from "../theme/default"
+import theme from "../../theme/default"
 
 type Props = {
   children: ReactNode
@@ -17,23 +15,13 @@ const useStyles = makeStyles({
   },
 })
 
-const Layout: React.FC<Props> = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const SimpleLayout: React.FC<Props> = ({ children }) => {
   const classes = useStyles()
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header siteTitle={data.site.siteMetadata.title} />
         <div className={classes.container}>
           <main>{children}</main>
         </div>
@@ -42,4 +30,4 @@ const Layout: React.FC<Props> = ({ children }) => {
   )
 }
 
-export default Layout
+export default SimpleLayout

@@ -1,17 +1,17 @@
 import React from "react"
-import Layout from "../components/layout"
+import AppLayout from "../components/layout/app"
 const AppLazy = React.lazy(() => import("../components/app"))
 
 const App = () => {
   const isSSR = typeof window === "undefined"
   return (
-    <Layout>
+    <AppLayout>
       {!isSSR && (
         <React.Suspense fallback={<div />}>
           <AppLazy />
         </React.Suspense>
       )}
-    </Layout>
+    </AppLayout>
   )
 }
 
