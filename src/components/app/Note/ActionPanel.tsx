@@ -10,6 +10,7 @@ import CopyButton from "./CopyButton"
 
 interface Props {
   note: TNote
+  view?: Boolean
 }
 
 const useStyles = makeStyles({
@@ -22,13 +23,14 @@ const useStyles = makeStyles({
   },
 })
 
-const ActionPanel: React.FC<Props> = ({ note }) => {
+const ActionPanel: React.FC<Props> = ({ note, view = true }) => {
   const classes = useStyles()
 
   const handleEdit = () => {
-    navigate(`app/edit/${note.id}`)
+    navigate(`/app/edit/${note.id}`)
   }
-  const handleView = () => {}
+  const handleView = () => navigate(`/app/view/${note.id}`)
+
   const handleCopy = () => {
     copyToClipBoard(note.body)
   }
@@ -36,9 +38,11 @@ const ActionPanel: React.FC<Props> = ({ note }) => {
 
   return (
     <div className={classes.panel}>
-      <Button onClick={handleView} variant="outlined">
-        View
-      </Button>
+      {view && (
+        <Button onClick={handleView} variant="outlined">
+          View
+        </Button>
+      )}
       <CopyButton onClick={handleCopy} variant="outlined" />
       <Button onClick={handleEdit} variant="outlined">
         Edit
