@@ -13,7 +13,9 @@ describe("ActionPanel", () => {
   afterEach(cleanup)
 
   it("renders correctly", () => {
-    render(<ActionPanel note={note} />)
+    const { getByText } = render(<ActionPanel note={note} />)
+
+    expect(getByText("View")).toBeTruthy()
   })
 
   it("calls copyToClipBoard when Copy button is clicked", () => {
@@ -22,5 +24,11 @@ describe("ActionPanel", () => {
     fireEvent.click(getByText("Copy"))
 
     expect(copy.copyToClipBoard).toHaveBeenCalledTimes(1)
+  })
+
+  it("it doesn't show View button when view is false", () => {
+    const { queryByText } = render(<ActionPanel note={note} view={false} />)
+
+    expect(queryByText("View")).toBeNull()
   })
 })

@@ -4,6 +4,11 @@
   "description": "A simple starter to get up and developing quickly with Gatsby using TypeScript, Jest, @testing-library/react, styled-components",
   "version": "0.1.0",
   "author": "alarivan <alarivan@pm.me>",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test"
+    }
+  },
   "dependencies": {
     "@material-ui/core": "^4.9.1",
     "@material-ui/icons": "^4.9.1",
@@ -39,6 +44,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-helmet": "^5.0.9",
     "@types/rebass": "^4.0.1",
+    "husky": "^4.2.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.17",
