@@ -26,7 +26,7 @@ export const DELETE_NOTE = "DELETE_NOTE"
 export type DELETE_NOTE_ACTION = {
   type: typeof DELETE_NOTE
   payload: {
-    note: TNote
+    id: string
   }
 }
 

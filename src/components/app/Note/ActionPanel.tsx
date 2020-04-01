@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { TNote } from "../../../reducers/notes/types"
 
@@ -6,7 +6,9 @@ import Button from "@material-ui/core/Button"
 
 import { navigate } from "@reach/router"
 import { copyToClipBoard } from "../../utils/copyToClipBoard"
+import { NotesContext } from "../../../context/NotesContext"
 import CopyButton from "./CopyButton"
+import { deleteNoteAction } from "../../../reducers/notes/actions"
 
 interface Props {
   note: TNote
@@ -24,6 +26,7 @@ const useStyles = makeStyles({
 })
 
 const ActionPanel: React.FC<Props> = ({ note, view = true }) => {
+  const { dispatch } = useContext(NotesContext)
   const classes = useStyles()
 
   const handleEdit = () => {
@@ -34,7 +37,7 @@ const ActionPanel: React.FC<Props> = ({ note, view = true }) => {
   const handleCopy = () => {
     copyToClipBoard(note.body)
   }
-  const handleDelete = () => {}
+  const handleDelete = () => dispatch(deleteNoteAction(note.id))
 
   return (
     <div className={classes.panel}>

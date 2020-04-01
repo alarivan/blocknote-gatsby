@@ -18,7 +18,7 @@ export function notesReducer(state: TNotesState, action: TNotesAction) {
       return state.set(action.payload.note.id, action.payload.note)
 
     case DELETE_NOTE:
-      return state.delete(action.payload.note.id)
+      return state.delete(action.payload.id)
 
     default:
       return state
