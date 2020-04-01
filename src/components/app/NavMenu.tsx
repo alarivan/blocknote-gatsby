@@ -21,19 +21,19 @@ const NavMenu: React.FC = () => {
 
   return (
     <div className={classes.navmenu}>
-      <NavMenuItem>
+      <NavMenuItem to="/app/edit/new">
         <PostAddIcon />
       </NavMenuItem>
-      <NavMenuItem>
+      <NavMenuItem to="/app">
         <ArchiveOutlinedIcon />
       </NavMenuItem>
-      <NavMenuItem>
+      <NavMenuItem to="/app/import-export">
         <ImportExportOutlinedIcon />
       </NavMenuItem>
-      <NavMenuItem>
+      <NavMenuItem to="/app/settings">
         <SettingsOutlinedIcon />
       </NavMenuItem>
-      <NavMenuItem>
+      <NavMenuItem to="/app/help">
         <KeyboardOutlinedIcon />
       </NavMenuItem>
     </div>
