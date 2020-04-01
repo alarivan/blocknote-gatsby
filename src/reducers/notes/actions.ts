@@ -23,9 +23,9 @@ export function saveNoteAction(note: TNote): SAVE_NOTE_ACTION {
   }
 }
 
-export function deleteNoteAction(note: TNote): DELETE_NOTE_ACTION {
+export function deleteNoteAction(id: string): DELETE_NOTE_ACTION {
   return {
     type: DELETE_NOTE,
-    payload: { note },
+    payload: { id },
   }
 }
