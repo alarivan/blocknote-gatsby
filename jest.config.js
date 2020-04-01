@@ -13,7 +13,7 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: ``,
   },
-  setupFilesAfterEnv: [`<rootDir>/jest.setup.js`],
+  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
   setupFiles: [`<rootDir>/loadershim.js`],
   snapshotSerializers: ["jest-emotion"],
 }
