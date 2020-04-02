@@ -3,7 +3,7 @@ import { render, fireEvent } from "@testing-library/react"
 import TagList from "./TagList"
 import { Seq } from "immutable"
 
-describe("Tag", () => {
+describe("TagList", () => {
   it("renders correctly and calls onClick with correct tag", () => {
     const onClick = jest.fn()
     const tag = { id: "tag", color: "white" }
