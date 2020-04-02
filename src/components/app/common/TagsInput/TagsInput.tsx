@@ -9,9 +9,10 @@ import { Seq } from "immutable"
 interface Props {
   noteTags: Seq.Indexed<TTag>
   onTagAdd: (tag: string) => void
+  onTagDelete: (tag: string) => void
 }
 
-const TagsInput: React.FC<Props> = ({ noteTags, onTagAdd }) => {
+const TagsInput: React.FC<Props> = ({ noteTags, onTagAdd, onTagDelete }) => {
   const { state, dispatch } = useContext(TagsContext)
   const [tag, setTag] = useState("")
 
@@ -33,13 +34,17 @@ const TagsInput: React.FC<Props> = ({ noteTags, onTagAdd }) => {
       .valueSeq()
   }
 
+  const handleSuggestionClick = (t: TTag) => onTagAdd(t.id)
+
+  const handleRemoveClick = (t: TTag) => onTagDelete(t.id)
+
   return (
     <Box py={2}>
-      <TagList tags={noteTags.valueSeq()} />
+      <TagList tags={noteTags.valueSeq()} onClick={handleRemoveClick} />
       <form onSubmit={handleSubmit}>
         <TextField value={tag} onChange={handleChange} />
       </form>
-      <TagList tags={tagSuggestions()} />
+      <TagList tags={tagSuggestions()} onClick={handleSuggestionClick} />
     </Box>
   )
 }

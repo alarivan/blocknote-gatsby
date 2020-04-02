@@ -34,10 +34,19 @@ const Editor: React.FC<Props> = ({ note, dispatch }) => {
     navigate(`app/edit/${note.id}`)
   }
 
+  const handleTagDelete = (tag: string) => {
+    const newTags = note.tags.delete(tag)
+    dispatch(saveNoteAction({ id: note.id, body: text, tags: newTags }))
+  }
+
   return (
     <>
       <ReactQuill value={text} onChange={handleChange} />
-      <TagsInput noteTags={noteTags} onTagAdd={handleTagAdd} />
+      <TagsInput
+        noteTags={noteTags}
+        onTagAdd={handleTagAdd}
+        onTagDelete={handleTagDelete}
+      />
       <button onClick={handleSave}>Save</button>
     </>
   )

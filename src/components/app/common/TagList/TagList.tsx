@@ -5,13 +5,14 @@ import Tag from "../Tag/Tag"
 
 interface Props {
   tags: Seq.Indexed<TTag>
+  onClick: (tag: TTag) => void
 }
 
-const TagListing: React.FC<Props> = ({ tags }) => {
+const TagListing: React.FC<Props> = ({ tags, onClick }) => {
   return (
     <div>
       {tags.map(tag => (
-        <Tag tag={tag} key={tag.id} />
+        <Tag tag={tag} key={tag.id} onClick={() => onClick(tag)} />
       ))}
     </div>
   )
