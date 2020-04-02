@@ -7,9 +7,9 @@ import { TagsContext } from "./../context/TagsContext"
 export default function useNoteTags(tags: TNoteTags): Seq.Indexed<TTag> {
   const { state } = useContext(TagsContext)
   const tagItems = useMemo(
-    () => (tags.map(tag => state.get(tag)) as unknown) as TTag[],
+    () => Seq.Indexed((tags.map(tag => state.get(tag)) as unknown) as TTag[]),
     [tags]
   )
 
-  return Seq.Indexed(tagItems)
+  return tagItems
 }
