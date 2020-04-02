@@ -25,13 +25,21 @@ const TagsInput: React.FC<Props> = ({ noteTags, onTagAdd }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setTag(e.target.value)
 
+  const tagSuggestions = () => {
+    if (!tag) return Seq.Indexed()
+
+    return state
+      .filter(t => t.id.startsWith(tag) && !noteTags.includes(t))
+      .valueSeq()
+  }
+
   return (
     <Box py={2}>
       <TagList tags={noteTags.valueSeq()} />
       <form onSubmit={handleSubmit}>
         <TextField value={tag} onChange={handleChange} />
       </form>
-      <TagList tags={state.valueSeq()} />
+      <TagList tags={tagSuggestions()} />
     </Box>
   )
 }
