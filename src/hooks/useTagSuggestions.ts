@@ -1,4 +1,4 @@
-import { useContext, useMemo, useCallback } from "react"
+import { useContext, useMemo } from "react"
 import { Seq } from "immutable"
 
 import { TagsContext } from "../context/TagsContext"
@@ -10,15 +10,13 @@ export default function useTagSuggestions(
 ): Seq.Indexed<TTag> {
   const { state } = useContext(TagsContext)
 
-  const predicate = useCallback(() => {
-    return (tag: TTag) => {
-      if (noteTags) {
-        return tag.id.startsWith(value) && !noteTags.includes(tag)
-      }
-
-      return tag.id.startsWith(value)
+  const predicate = (tag: TTag) => {
+    if (noteTags) {
+      return tag.id.startsWith(value) && !noteTags.includes(tag)
     }
-  }, [noteTags])
+
+    return tag.id.startsWith(value)
+  }
 
   const suggestions = useMemo(() => {
     if (!value) return Seq.Indexed()
