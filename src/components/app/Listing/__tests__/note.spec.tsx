@@ -1,8 +1,9 @@
 import React from "react"
 import { render, cleanup } from "@testing-library/react"
 import Note from "../Note"
+import { initNote } from "../../../../reducers/notes/utils"
 
-const note = { id: "something", body: "text" }
+const note = initNote("text")
 
 describe("Note", () => {
   afterEach(cleanup)

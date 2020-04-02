@@ -1,7 +1,7 @@
 import { notesReducer } from "../reducer"
 import { emptyAction } from "../../actions"
 import { setNotesAction, saveNoteAction, deleteNoteAction } from "../actions"
-import { Map } from "immutable"
+import { Map, Set } from "immutable"
 
 describe("notesReducer", () => {
   it("returns initials state", () => {
@@ -11,7 +11,9 @@ describe("notesReducer", () => {
   })
 
   it("sets notes", () => {
-    const notes = Map([["fake_id", { id: "fake_id", body: "body" }]])
+    const notes = Map([
+      ["fake_id", { id: "fake_id", body: "body", tags: Set() }],
+    ])
     const action = setNotesAction(notes)
     const state = notesReducer(Map(), action)
 
@@ -19,7 +21,7 @@ describe("notesReducer", () => {
   })
 
   it("adds note", () => {
-    const note = { id: "fake_id", body: "body" }
+    const note = { id: "fake_id", body: "body", tags: Set() }
     const action = saveNoteAction(note)
     const state = notesReducer(Map(), action)
 
@@ -27,7 +29,7 @@ describe("notesReducer", () => {
   })
 
   it("deletes note", () => {
-    const note = { id: "fake_id", body: "body" }
+    const note = { id: "fake_id", body: "body", tags: Set() }
     const action = deleteNoteAction(note.id)
     const state = notesReducer(Map([[note.id, note]]), action)
 

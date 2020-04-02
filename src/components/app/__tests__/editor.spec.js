@@ -2,8 +2,9 @@ import React, { Dispatch } from "react"
 import { render, cleanup } from "@testing-library/react"
 import Editor from "../Editor"
 import { TNotesAction } from "../../../reducers/notes/types"
+import { initNote } from "../../../reducers/notes/utils"
 
-const note = { id: "something", body: "text" }
+const note = initNote("text")
 
 global.MutationObserver = class {
   constructor(callback) {}
