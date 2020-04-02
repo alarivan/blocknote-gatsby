@@ -9,8 +9,8 @@ interface Props {
 const Note: React.FC<Props> = ({ note }) => {
   return (
     <div>
-      <ActionPanel note={note} />
       <div dangerouslySetInnerHTML={{ __html: note.body }}></div>
+      <ActionPanel note={note} />
     </div>
   )
 }

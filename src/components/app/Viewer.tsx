@@ -9,8 +9,8 @@ interface Props {
 const Viewer: React.FC<Props> = ({ note }) => {
   return (
     <>
-      <ActionPanel note={note} view={false} />
       <div dangerouslySetInnerHTML={{ __html: note.body }}></div>
+      <ActionPanel note={note} view={false} />
     </>
   )
 }
