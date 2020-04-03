@@ -4,6 +4,8 @@ import "react-quill/dist/quill.snow.css"
 import { TNote, TNotesAction } from "../../reducers/notes/types"
 import { saveNoteAction } from "../../reducers/notes/actions"
 import { navigate } from "gatsby"
+import EditorToolbar from "./editor/Toolbar"
+import { formats, modules } from "../utils/quillExtend"
 
 interface Props {
   note: TNote
@@ -26,7 +28,14 @@ const Editor: React.FC<Props> = ({ note, dispatch }) => {
 
   return (
     <>
-      <ReactQuill value={text} onChange={handleChange} />
+      <EditorToolbar />
+      <ReactQuill
+        theme="snow"
+        formats={formats}
+        modules={modules}
+        value={text}
+        onChange={handleChange}
+      />
       <button onClick={handleSave}>Save</button>
     </>
   )
