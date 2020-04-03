@@ -4,6 +4,7 @@ import {
   SET_TAGS,
   SAVE_TAG,
   DELETE_TAG,
+  CREATE_TAG,
 } from "./types"
 import { Map } from "immutable"
 
@@ -13,6 +14,9 @@ export function tagsReducer(state: TTagsState, action: TTagsAction) {
   switch (action.type) {
     case SET_TAGS:
       return action.payload.tags
+
+    case CREATE_TAG:
+      return state.set(action.tag.id, action.tag)
 
     case SAVE_TAG:
       return state.set(action.payload.tag.id, action.payload.tag)

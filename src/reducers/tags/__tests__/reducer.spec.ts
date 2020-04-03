@@ -1,6 +1,11 @@
 import { tagsReducer } from "../reducer"
 import { emptyAction } from "../../actions"
-import { setTagsAction, saveTagAction, deleteTagAction } from "../actions"
+import {
+  setTagsAction,
+  saveTagAction,
+  deleteTagAction,
+  createTagAction,
+} from "../actions"
 import { Map } from "immutable"
 
 describe("tagsReducer", () => {
@@ -16,6 +21,14 @@ describe("tagsReducer", () => {
     const state = tagsReducer(Map(), action)
 
     expect(state).toEqual(tags)
+  })
+
+  it("creates tag", () => {
+    const tag = { id: "fake_id", color: "white" }
+    const action = createTagAction("fake_id", "white")
+    const state = tagsReducer(Map(), action)
+
+    expect(state).toEqual(Map([[tag.id, tag]]))
   })
 
   it("adds tag", () => {

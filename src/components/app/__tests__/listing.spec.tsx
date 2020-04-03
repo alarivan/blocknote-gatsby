@@ -1,9 +1,10 @@
 import React from "react"
 import { render, cleanup } from "@testing-library/react"
-import Listing from "../Listing"
 import { Seq } from "immutable"
+import Listing from "../Listing"
+import { initNote } from "../../../reducers/notes/utils"
 
-const notes = Seq([{ id: "something", body: "text" }])
+const notes = Seq([initNote("text")])
 
 describe("Listing", () => {
   afterEach(cleanup)

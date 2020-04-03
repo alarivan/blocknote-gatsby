@@ -15,6 +15,7 @@
     "@material-ui/styles": "^4.9.0",
     "@rebass/preset": "^4.0.5",
     "@types/immutable": "^3.8.7",
+    "@types/randomcolor": "^0.5.4",
     "gatsby": "^2.15.7",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-manifest": "^2.2.13",
@@ -27,6 +28,7 @@
     "gatsby-transformer-sharp": "^2.2.13",
     "immutable": "^4.0.0-rc.12",
     "modern-normalize": "^0.5.0",
+    "randomcolor": "^0.5.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
@@ -62,6 +64,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   }
 }

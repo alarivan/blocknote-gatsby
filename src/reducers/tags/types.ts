@@ -14,6 +14,13 @@ export type SET_TAGS_ACTION = {
     tags: TTagsState
   }
 }
+
+export const CREATE_TAG = "CREATE_TAG"
+export type CREATE_TAG_ACTION = {
+  type: typeof CREATE_TAG
+  tag: TTag
+}
+
 export const SAVE_TAG = "SAVE_TAG"
 export type SAVE_TAG_ACTION = {
   type: typeof SAVE_TAG
@@ -32,6 +39,7 @@ export type DELETE_TAG_ACTION = {
 
 export type TTagsAction =
   | SET_TAGS_ACTION
+  | CREATE_TAG_ACTION
   | SAVE_TAG_ACTION
   | DELETE_TAG_ACTION
   | EMPTY_ACTION

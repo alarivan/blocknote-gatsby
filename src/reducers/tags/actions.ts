@@ -7,12 +7,25 @@ import {
   DELETE_TAG_ACTION,
   TTagsState,
   TTag,
+  CREATE_TAG_ACTION,
+  CREATE_TAG,
 } from "./types"
+import generateColor from "../../components/utils/generateColor"
 
 export function setTagsAction(tags: TTagsState): SET_TAGS_ACTION {
   return {
     type: SET_TAGS,
     payload: { tags },
+  }
+}
+
+export function createTagAction(id: string, color?: string): CREATE_TAG_ACTION {
+  return {
+    type: CREATE_TAG,
+    tag: {
+      id,
+      color: generateColor(color),
+    },
   }
 }
 

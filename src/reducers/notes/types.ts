@@ -1,9 +1,12 @@
 import { EMPTY_ACTION } from "../types"
-import { Map } from "immutable"
+import { Map, Set } from "immutable"
+
+export type TNoteTags = Set<string>
 
 export type TNote = {
   id: string
   body: string
+  tags: TNoteTags
 }
 export type TNotesState = Map<string, TNote>
 

@@ -2,12 +2,13 @@ import React from "react"
 import { render, cleanup, fireEvent } from "@testing-library/react"
 import ActionPanel from "../ActionPanel"
 import * as copy from "../../../utils/copyToClipBoard"
+import { initNote } from "../../../../reducers/notes/utils"
 
 jest.mock("../../../utils/copyToClipBoard", () => ({
   copyToClipBoard: jest.fn(),
 }))
 
-const note = { id: "something", body: "text" }
+const note = initNote("text")
 
 describe("ActionPanel", () => {
   afterEach(cleanup)
