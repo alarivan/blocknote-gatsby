@@ -5,13 +5,14 @@ import { TNote } from "../../../reducers/notes/types"
 import Button from "@material-ui/core/Button"
 
 import { navigate } from "@reach/router"
-import { copyToClipBoard } from "../../utils/copyToClipBoard"
+import { copyElementToClipboard } from "../../utils/copyToClipBoard"
 import { NotesContext } from "../../../context/NotesContext"
 import CopyButton from "./CopyButton"
 import { deleteNoteAction } from "../../../reducers/notes/actions"
 
 interface Props {
   note: TNote
+  noteRef: React.RefObject<HTMLDivElement>
   view?: Boolean
 }
 
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
   },
 })
 
-const ActionPanel: React.FC<Props> = ({ note, view = true }) => {
+const ActionPanel: React.FC<Props> = ({ note, noteRef, view = true }) => {
   const { dispatch } = useContext(NotesContext)
   const classes = useStyles()
 
@@ -35,7 +36,7 @@ const ActionPanel: React.FC<Props> = ({ note, view = true }) => {
   const handleView = () => navigate(`/app/view/${note.id}`)
 
   const handleCopy = () => {
-    copyToClipBoard(note.body)
+    if (noteRef.current) copyElementToClipboard(noteRef.current)
   }
   const handleDelete = () => dispatch(deleteNoteAction(note.id))
 
